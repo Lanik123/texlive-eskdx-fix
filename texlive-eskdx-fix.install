@@ -1,0 +1,16 @@
+backup_file="/usr/share/eskdx-fix/eskdstamp.sty"
+target_file="/usr/share/texmf-dist/tex/latex/eskdx/eskdstamp.sty"
+script_file="/usr/share/eskdx-fix/texlive-eskdx-fix.sh"
+
+post_install() {
+    cp "$target_file" "$backup_file"
+    sh "$script_file"
+}
+
+post_upgrade() {
+    sh "$script_file"
+}
+
+pre_remove() {
+    mv "$backup_file" "$target_file"
+}

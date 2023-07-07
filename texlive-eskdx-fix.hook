@@ -1,0 +1,9 @@
+[Trigger]
+Operation = Upgrade
+Type = Package
+Target = texlive-langcyrillic
+
+[Action]
+Description = Applying fix for eskdx frames error.
+When = PostTransaction
+Exec = /usr/share/eskdx-fix/texlive-eskdx-fix.sh
